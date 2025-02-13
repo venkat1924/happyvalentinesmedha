@@ -12,69 +12,68 @@
         <b>What would you like to eat?</b>
       </div>
 
-      <form action="https://formsubmit.co/el/vehewo" method="POST" onsubmit="prepareForm(event)">
+      <form action="https://formsubmit.co/YOUR_EMAIL" method="POST" onsubmit="prepareForm()">
         <!-- Hidden input for storing date -->
         <input type="hidden" name="date" id="selectedDate" />
+
+        <!-- Ensure FormSubmit processes the request properly -->
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="lastpage.html" />
 
         <div class="food-selection">
           <div class="food-item">
             <img src="food/mingosCoffee.jpeg" alt="Mingo's (bitter) coffee" />
-            <label><input type="checkbox" name="food" value="Mingo's Bitter Coffee" /> Mingo's (bitter) coffee</label>
+            <label>
+              <input type="checkbox" name="food" value="Mingo's Bitter Coffee" /> Mingo's (bitter) coffee
+            </label>
           </div>
           <div class="food-item">
             <img src="food/mmfoodCoffee.jpeg" alt="tasty coffee" />
-            <label><input type="checkbox" name="food" value="MM Food's (tasty) coffee" /> MM Food's (tasty) coffee </label>
+            <label>
+              <input type="checkbox" name="food" value="MM Food's (tasty) coffee" /> MM Food's (tasty) coffee
+            </label>
           </div>
           <div class="food-item">
             <img src="food/Vada_Pav.jpg" alt="vadapavyaya" />
-            <label><input type="checkbox" name="food" value="Vada Pav ofc" /> Vada Pav (fine, without cheese)</label>
+            <label>
+              <input type="checkbox" name="food" value="Vada Pav ofc" /> Vada Pav (fine, without cheese)
+            </label>
           </div>
           <div class="food-item">
             <img src="food/greenLays.jpeg" alt="greenLays" />
-            <label><input type="checkbox" name="food" value="greenLays" /> The things I'll eat for you</label>
+            <label>
+              <input type="checkbox" name="food" value="greenLays" /> The things I'll eat for you
+            </label>
           </div>
           <div class="food-item">
             <img src="food/ice.jpeg" alt="curing global warming" />
-            <label><input type="checkbox" name="food" value="curing global warming" /> cure to global warming</label>
+            <label>
+              <input type="checkbox" name="food" value="curing global warming" /> Cure to global warming
+            </label>
           </div>
           <div class="food-item">
             <img src="food/masalaPuri.jpeg" alt="masala puri" />
-            <label><input type="checkbox" name="food" value="masala puri" /> tasty(?) masala puri</label>
+            <label>
+              <input type="checkbox" name="food" value="masala puri" /> Tasty(?) masala puri
+            </label>
           </div>
           <div class="food-item">
             <img src="food/lizard.jpeg" alt="assert dominance" />
-            <label><input type="checkbox" name="food" value="Assert Dominance" /> Assert Dominance</label>
+            <label>
+              <input type="checkbox" name="food" value="Assert Dominance" /> Assert Dominance
+            </label>
           </div>
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="button">Send Response</button>
+        <button type="submit" class="button">gom sounds like a plan</button>
       </form>
     </div>
 
     <script>
-      function prepareForm(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Store selected date
-        document.getElementById("selectedDate").value = localStorage.getItem("selectedDate");
-
-        // Submit the form using Fetch API
-        const form = document.querySelector("form");
-        const formData = new FormData(form);
-
-        fetch(form.action, {
-          method: "POST",
-          body: formData,
-        })
-        .then(response => {
-          if (response.ok) {
-            window.location.href = "lastpage.html"; // Redirect after submission
-          } else {
-            alert("Something went wrong. Try again!");
-          }
-        })
-        .catch(error => console.error("Error:", error));
+      function prepareForm() {
+        // Get the selected date from localStorage
+        document.getElementById("selectedDate").value = localStorage.getItem("selectedDate") || "No date selected";
       }
     </script>
   </body>
