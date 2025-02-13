@@ -12,9 +12,9 @@
         <b>What would you like to eat?</b>
       </div>
 
-      <form action="https://formsubmit.co/el/vehewo" method="POST" onsubmit="prepareForm()">
+      <form action="https://formsubmit.co/el/vehewo" method="POST" onsubmit="prepareForm(event)">
         <!-- Hidden input for storing date -->
-        <input type="hidden" name="date" id="selectedDate">
+        <input type="hidden" name="date" id="selectedDate" />
 
         <div class="food-selection">
           <div class="food-item">
@@ -48,14 +48,33 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="button" onclick="location.href='lastpage.html'">Send Response</button>
+        <button type="submit" class="button">Send Response</button>
       </form>
     </div>
 
     <script>
-      function prepareForm() {
-        // Get the selected date from localStorage
+      function prepareForm(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Store selected date
         document.getElementById("selectedDate").value = localStorage.getItem("selectedDate");
+
+        // Submit the form using Fetch API
+        const form = document.querySelector("form");
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+          method: "POST",
+          body: formData,
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = "lastpage.html"; // Redirect after submission
+          } else {
+            alert("Something went wrong. Try again!");
+          }
+        })
+        .catch(error => console.error("Error:", error));
       }
     </script>
   </body>
