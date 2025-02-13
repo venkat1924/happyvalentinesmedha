@@ -5,53 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Food Selection</title>
     <link rel="stylesheet" href="css/food.css" />
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Ensures full viewport height */
+        justify-content: center; /* Centers content */
+        align-items: center;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      .food-selection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .button {
+        margin-top: 20px; /* Adds space above the button */
+        position: relative;
+        bottom: 0;
+      }
+    </style>
   </head>
   <body>
-    <div id="foodquestion">
-      <b>What would you like to eat?</b>
-    </div>
+    <div class="container">
+      <div id="foodquestion">
+        <b>What would you like to eat?</b>
+      </div>
 
-    <div class="food-selection">
-      <div class="food-item">
-        <img src="food/mingosCoffee.jpeg" alt="Mingo's (bitter) coffee" />
-        <label
-          ><input
-            type="checkbox"
-            name="food"
-            value="Mingo's Bitter Coffee"
-          />
-          Mingo's (bitter) coffee</label
-        >
+      <div class="food-selection">
+        <div class="food-item">
+          <img src="food/mingosCoffee.jpeg" alt="Mingo's (bitter) coffee" />
+          <label><input type="checkbox" name="food" value="Mingo's Bitter Coffee" />
+            Mingo's (bitter) coffee</label>
+        </div>
+        <div class="food-item">
+          <img src="food/mmfoodCoffee.jpeg" alt="tasty coffee" />
+          <label><input type="checkbox" name="food" value="MM Food's (tasty) coffee" /> hotdog</label>
+        </div>
+        <div class="food-item">
+          <img src="food/Vada_Pav.jpg" alt="vadapavyaya" />
+          <label><input type="checkbox" name="food" value="Vada Pav ofc" /> Vada Pav (fine, without cheese)</label>
+        </div>
+        <div class="food-item">
+          <img src="food/greenLays.jpeg" alt="greenLays" />
+          <label><input type="checkbox" name="food" value="greenLays" /> The things I'll eat for you</label>
+        </div>
+        <div class="food-item">
+          <img src="food/ice.jpeg" alt="curing global warming" />
+          <label><input type="checkbox" name="food" value="curing global warming" /> cure to global warming</label>
+        </div>
+        <div class="food-item">
+          <img src="food/masalaPuri.jpeg" alt="masala puri" />
+          <label><input type="checkbox" name="food" value="masala puri" /> tasty(?) masala puri</label>
+        </div>
+        <div class="food-item">
+          <img src="food/lizard.jpeg" alt="assert dominance" />
+          <label><input type="checkbox" name="food" value="Assert Dominance" /> Assert Dominance</label>
+        </div>
       </div>
-      <div class="food-item">
-        <img src="food/mmfoodCoffee.jpeg" alt="tasty coffee" />
-        <label
-          ><input type="checkbox" name="food" value="MM Food's (tasty) coffee" /> hotdog</label
-        >
-      </div>
-      <div class="food-item">
-        <img src="food/Vada_Pav.jpg" alt="vadapavyaya" />
-        <label
-          ><input type="checkbox" name="food" value="Vada Pav ofc" /> Vada Pav (fine, without cheese)</label>
-      </div>
-      <div class="food-item">
-        <img src="food/greenLays.jpeg" alt="greenLays" />
-        <label><input type="checkbox" name="food" value="greenLays" /> The things I'll eat for you</label>
-      </div>
-      <div class="food-item">
-        <img src="food/ice.jpeg" alt="curing global warming" />
-        <label><input type="checkbox" name="food" value="curing global warming" /> cure to global warming</label>
-      </div>
-      <div class="food-item">
-        <img src="food/masalaPuri.jpeg" alt="masala puri" />
-        <label><input type="checkbox" name="food" value="masala puri" /> tasty(?) masala puri</label>
-      </div>
-      <div class="food-item">
-        <img src="food/lizard.jpeg" alt="assert dominance" />
-        <label><input type="checkbox" name="food" value="Assert Dominance" /> Assert Dominance</label>
-      </div>
-    <button class="button" onclick="location.href='lastpage.html'">
-      Well then...
-    </button>
+
+      <!-- Move button outside of .food-selection -->
+      <button class="button" onclick="location.href='lastpage.html'">
+        Well then...
+      </button>
+    </div>
   </body>
 </html>
